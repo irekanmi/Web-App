@@ -1,0 +1,74 @@
+
+<%- include('../_partial/_header'); -%>
+<style>
+  .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .form-container{
+    width: 55%;
+  }
+  form{
+    border: 1.5px solid rgb(150, 146, 146);
+    border-radius: 5px;
+    padding: 20px;
+  }
+  form label{
+    display: block;
+    padding-top: 0.65rem;
+  }
+  /* .form-head{
+    background-color: rgb(70, 68, 68);
+  } */
+  form input{
+    width: 100%;
+    height: 1.5rem;
+    border: 1.5px solid rgb(150, 146, 146);
+    border-radius: 6px;
+  }
+  form textarea{
+    width: 100%;
+    height: 1.5rem;
+    border: 1.5px solid rgb(150, 146, 146);
+    border-radius: 6px;
+    resize: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  .btn-form{
+    width: 15%;
+    color: rgb(247, 236, 236);
+    margin-top: 0.75rem;
+    background-color: rgb(71, 109, 145);
+    border-radius: 8px;
+    box-shadow: none;
+    border: none;
+  }
+  .btn-form:hover{
+    background-color: rgb(25, 90, 128);
+    border: 2px solid rgb(61, 60, 60);
+  }
+  #post-content{
+    height: 6rem;
+    padding: 0;
+  }
+</style>
+<main class="page">
+  <div class="form">
+    <div class="form-container">
+      <form action="/posts/add" method="POST">
+        <h3 class="form-head">Create post</h3>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="" placeholder="Title">
+        <label for="content">Content</label>
+        <textarea type="" name="content" id="post-content" placeholder="Content"></textarea><br>
+        <input type="submit" value="Create" class="btn-form">
+      </form>
+    </div>
+  </div>
+</main>
+
+<%- include('../_partial/_footer'); -%>
+

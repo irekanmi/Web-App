@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Application</title>
+  </head>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      /* box-sizing: border-box; */
+    }
+    :root{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+      background-color: rgb(207, 210, 212);
+      display: flex;
+      justify-content: center;
+    }
+    nav {
+      width: 90%;
+      max-width: 1120px;
+      display: flex;
+      justify-content: space-between;
+      padding: 25px;
+    }
+    .nav-header {
+      width: 200px;
+      font-size: 1.9rem;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.0rem;
+      font-weight: 100;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display: flex;
+      align-items: center;
+      justify-self: center;
+    }
+    .nav-link {
+      padding: 7px;
+      margin: 3px;
+    }
+    .foot-container{
+      width: 100vw;
+      display: block;
+    }
+    .page{
+      width: 90vw;
+      margin: 0 auto;
+      padding-top: 2rem;
+      min-height: calc(100vh - (6rem + 4rem));
+    }
+    footer {
+      width: 100%;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(37, 35, 35);
+    }
+    .foot-items{
+      color: white;
+    }
+    h1{
+      font-size: 1.75rem;
+    }
+    .alert-container{
+      width: 90vw;
+      margin: auto auto;
+      padding-top: 2rem;
+      transition: 0.8s;
+    }
+    .alert{
+      border: 0.7px solid rgb(240, 9, 9);
+      border-radius: 4px;
+      background-color: rgb(247, 119, 119);
+      padding: 15px;
+    }
+    .alert-message{
+      color: rgb(247, 15, 15);
+    }
+    .info-container{
+      width: 90vw;
+      margin: auto auto;
+      padding-top: 2rem;
+      transition: 0.8s;
+    }
+    .info{
+      border: 0.7px solid rgb(9, 117, 240);
+      border-radius: 4px;
+      background-color: rgb(119, 196, 247);
+      padding: 15px;
+    }
+    .info-message{
+      color: rgb(15, 123, 247);
+    }
+  </style>
+  <body>
+    <div class="body-container">
+      <div class="container">
+        <nav>
+          <div class="nav-header">Web Application</div>
+          <div class="nav-links">
+            <a href="/home" class="nav-link">Home</a>
+            <a href="/about" class="nav-link">About</a>
+            <% if(currentUser != null){ %>
+              <a href="/posts" class="nav-link">My Posts</a>
+              <a href="#" class="nav-link"><%= currentUser.username %></a>
+            <a href="/logout" class="nav-link">Logout</a>
+            <% }else{ %>
+
+              <a href="/login" class="nav-link">login</a>
+              <a href="/signup" class="nav-link">Sign up</a>
+            <% } %>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <% if(error && error.length > 0){ %>
+    <div class="alert-container" >
+        <div class="alert" >
+          <span class="alert-message">
+            <%= error %>
+          </span>
+        </div>
+      </div>
+      <% } %>
+    <% if(info && info.length > 0){ %>
+    <div class="info-container" >
+        <div class="info" >
+          <span class="info-message">
+            <%= info %>
+          </span>
+        </div>
+      </div>
+      <% } %>
+  <div class="foot-container">

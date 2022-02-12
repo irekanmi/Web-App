@@ -1,0 +1,13 @@
+<%- include('../_partial/_header'); -%>
+<main class="page">
+  <h1>
+    <% if(currentUser){ %>
+    Welcome to Node, <%= currentUser.username %>
+    <% }else{  %>
+      Welcome to Node
+    <% } %>
+  </h1>
+  
+</main>
+
+<%- include('../_partial/_footer'); -%>
