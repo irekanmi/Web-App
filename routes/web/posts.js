@@ -40,4 +40,30 @@ router.get('/:postId',function(req,res){
   })
 })
 
+router.get('/edit/:postId',function(req,res){
+
+  Post.findById(req.params.postId).exec(function(err,post){
+    if(err){console.log(err);}
+    res.render('posts/editSinglePost',{post:post})
+  })
+
+})
+
+router.post('/edit',async function(req,res){
+  const { title,content,postId } = req.body;
+  const post = await Post.findOne({_id:postId});
+
+  try {
+    post.title = title;
+    post.content = content;
+
+    post.save(function(err,post){
+      if(err){console.log(err);}
+      res.redirect(`/${postId}`)
+    })
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 module.exports = router
